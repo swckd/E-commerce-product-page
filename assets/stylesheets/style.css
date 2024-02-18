@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@700&display=swap");
+:root {
+  --bs-border-radius: 10px;
+}
+
+body {
+  font: 100% Kumbh Sans;
+  font-size: 16px;
+  background-color: hsl(0, 0%, 100%);
+}
+
+.navbar__profile-pic {
+  width: 24px;
+  height: 24px;
+}
+
+.btn-close {
+  --bs-btn-close-bg: url(../../assets/images/icon-close.svg);
+}
+
+.nav-link {
+  font-weight: bold;
+}
+
+.modal {
+  background-color: transparent !important;
+}
+
+.modal-content {
+  background-color: transparent !important;
+  border: 0;
+}
+
+.modal-footer {
+  border-top: 0;
+}
+
+/*# sourceMappingURL=style.css.map */
