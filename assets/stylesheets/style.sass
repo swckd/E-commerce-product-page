@@ -1,6 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@700&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap')
 
-$orange: hsl(26, 100%, 55%)
+// Variables
+$orange: #FF7E1B
 $pale-orange: hsl(25, 100%, 94%)
 $very-dark-blue: hsl(220, 13%, 13%)
 $dark-grayish-blue: hsl(219, 9%, 45%)
@@ -9,46 +10,117 @@ $light-grayish-blue: hsl(223, 64%, 98%)
 $white: hsl(0, 0%, 100%)
 $black: #1D2026
 $gray: #69707D
-
-$font-family: Kumbh Sans
+$font-family: 'Kumbh Sans', sans-serif
 $font-size: 16px
-
 $my-border-radius: 10px
 
+// Mixins
+@mixin bg-image($url) 
+  background-image: url($url)
+  background-repeat: no-repeat
 
+
+// Root
 :root 
   --bs-border-radius: #{$my-border-radius}
 
-
+// Body
 body
-    font: 100% $font-family
-    font-size: $font-size
-    background-color: $white
+  font: 100% $font-family
+  font-size: $font-size
+  background-color: $white
 
+// Navbar
 .navbar__profile-pic
-    width: 24px
-    height: 24px
+  width: 24px
+  height: 24px
 
-    // Not working, why?
+// Button
 .btn-close 
-    --bs-btn-close-bg: url(../../assets/images/icon-close.svg)
+  @include bg-image('../../assets/images/icon-close.svg')
+  opacity: 1
+  align-self: self-end
+  z-index: 2
 
+.btn-close:hover
+  @include bg-image('../../assets/images/icon-close-hover.svg')
+  opacity: 1
+
+// Nav link
 .nav-link
-    font-weight: bold
+  font-weight: bold
 
-.modal 
-    background-color: transparent !important
-
-.modal-content 
-    background-color: transparent !important
-    border: 0
+// Modal
+.modal, .modal-content 
+  background-color: transparent !important
+  border: 0
 
 .modal-footer
-    border-top: 0
+  border-top: 0
 
-.carousel-indicators [data-bs-target]
+// both Carousels
+.carousel-control-prev-icon, .carousel-control-next-icon
+    background-color: $white
+    border-radius: 50%
+    background-size: 8px 16px
+
+.carousel-control-prev-icon
+    @include bg-image('../../assets/images/icon-previous.svg')
+
+.carousel-control-next-icon:hover
+    @include bg-image('../../assets/images/icon-next-hover.svg')
+
+.carousel-control-prev-icon:hover
+    @include bg-image('../../assets/images/icon-previous-hover.svg')
+
+.carousel-control-next-icon
+    @include bg-image('../../assets/images/icon-next.svg')
+    
+// myCarousel
+#myCarousel
+  .carousel-indicators
+    position: unset
+
+  .carousel-indicators [data-bs-target]
+    opacity: 1
+    background-color: transparent !important
     width: 88px
     height: 88px
 
-.carousel-indicators
-    position: unset
+  .carousel-indicators .active
+    opacity: 0.5 !important
+
+  .active-border
+    border: 20px solid $orange
+
+  .carousel-control-next, .carousel-control-prev
+    opacity: 1
+    top: -100px
+
+  .carousel-control-next:hover, .carousel-control-prev:hover
+    opacity: 1
+
+  .carousel-control-prev
+    left: -38px
+
+  .carousel-control-next
+    right: -38px
+
+  .img-thumbnail
+    position: relative
+    overflow: hidden
+
+  .img-thumbnail img
+    width: 100%
+    height: auto
+
+  .img-thumbnail.active .image-overlay
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background-color: rgba(255, 255, 255, 0.75)
+    z-index: 2
+    border-radius: $my-border-radius
+    border: 2px solid $orange

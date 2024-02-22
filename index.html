@@ -31,10 +31,6 @@
       crossorigin="anonymous"
     />
 
-    <!-- <link
-      rel="stylesheet"
-      href="assets/scripts/lightbox2-2.11.4/dist/css/lightbox.min.css"
-    /> -->
     <link rel="stylesheet" href="assets/stylesheets/style.css" />
   </head>
   <body>
@@ -147,28 +143,24 @@ Standalone carousel for XS screens
                     <img
                       src="assets/images/image-product-1.jpg"
                       class="d-block w-100"
-                      alt="..."
                     />
                   </div>
                   <div class="carousel-item">
                     <img
                       src="assets/images/image-product-2.jpg"
                       class="d-block w-100"
-                      alt="..."
                     />
                   </div>
                   <div class="carousel-item">
                     <img
                       src="assets/images/image-product-3.jpg"
                       class="d-block w-100"
-                      alt="..."
                     />
                   </div>
                   <div class="carousel-item">
                     <img
                       src="assets/images/image-product-4.jpg"
                       class="d-block w-100"
-                      alt="..."
                     />
                   </div>
                 </div>
@@ -216,6 +208,7 @@ Modal for SM screens and up
                     data-bs-target="#myModal"
                     data-bs-slide-to="0"
                   />
+                  
                 </div>
                 <div class="col-sm-3 mt-1">
                   <img
@@ -225,6 +218,7 @@ Modal for SM screens and up
                     data-bs-target="#myModal"
                     data-bs-slide-to="0"
                   />
+                  
                 </div>
                 <div class="col-sm-3 mt-1">
                   <img
@@ -263,8 +257,14 @@ Modal for SM screens and up
                 aria-labelledby="myModalLabel"
                 aria-hidden="true"
               >
-                <div class="modal-dialog">
+                <div class="modal-dialog modal-dialog-centered">
                   <div class="modal-content">
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
                     <!-- 
 ===============================
 Carousel for SM screens and up
@@ -273,32 +273,32 @@ Carousel for SM screens and up
 
                     <div
                       id="myCarousel"
-                      class="carousel slide"
+                      class="carousel"
                       data-bs-ride="carousel"
                     >
                       <div class="carousel-inner">
                         <div class="carousel-item active">
                           <img
                             src="assets/images/image-product-1.jpg"
-                            class="img-fluid"
+                            class="w-100 d-block rounded"
                           />
                         </div>
                         <div class="carousel-item">
                           <img
                             src="assets/images/image-product-2.jpg"
-                            class="img-fluid"
+                            class="w-100 d-block rounded"
                           />
                         </div>
                         <div class="carousel-item">
                           <img
                             src="assets/images/image-product-3.jpg"
-                            class="img-fluid"
+                            class="w-100 d-block rounded"
                           />
                         </div>
                         <div class="carousel-item">
                           <img
                             src="assets/images/image-product-4.jpg"
-                            class="img-fluid"
+                            class="w-100 d-block rounded"
                           />
                         </div>
                       </div>
@@ -336,9 +336,11 @@ Carousel for SM screens and up
                         >
                           <img
                             src="assets/images/image-product-1-thumbnail.jpg"
-                            class="d-block w-100"
+                            class="d-block w-100 rounded"
                           />
+                          <div class="image-overlay"></div>
                         </button>
+                        
                         <button
                           type="button"
                           data-bs-target="#myCarousel"
@@ -347,8 +349,9 @@ Carousel for SM screens and up
                         >
                           <img
                             src="assets/images/image-product-1-thumbnail.jpg"
-                            class="d-block w-100"
+                            class="d-block w-100 rounded"
                           />
+                          <div class="image-overlay"></div>
                         </button>
                         <button
                           type="button"
@@ -358,8 +361,9 @@ Carousel for SM screens and up
                         >
                           <img
                             src="assets/images/image-product-3-thumbnail.jpg"
-                            class="d-block w-100"
+                            class="d-block w-100 rounded"
                           />
+                          <div class="image-overlay"></div>
                         </button>
                         <button
                           type="button"
@@ -367,9 +371,10 @@ Carousel for SM screens and up
                           data-bs-slide-to="3"
                           class="img-thumbnail"
                         >
+                        <div class="image-overlay"></div>
                           <img
                             src="assets/images/image-product-4-thumbnail.jpg"
-                            class="d-block w-100"
+                            class="d-block w-100 rounded"
                           />
                         </button>
                       </div>
@@ -412,5 +417,6 @@ Carousel for SM screens and up
       crossorigin="anonymous"
     ></script>
     <script src="assets/scripts/script.js"></script>
+
   </body>
 </html>

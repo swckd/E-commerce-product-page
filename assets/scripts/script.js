@@ -25,3 +25,12 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
   });
+
+var btnClose = document.querySelectorAll(".btn-close")[1];
+console.log(btnClose);
+btnClose.addEventListener("click",function() {
+  var backdrops = document.querySelectorAll('.modal-backdrop');
+  backdrops.forEach(function(backdrop) {
+    backdrop.remove();
+  });
+});
