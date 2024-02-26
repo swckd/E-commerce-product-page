@@ -15,7 +15,6 @@
 .DS_Store
 .prettierignore
 
-.vscode
-node_modules/
+.vscode/
 .gitignore
 .prettierrc
