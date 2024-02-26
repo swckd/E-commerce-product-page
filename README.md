@@ -1,4 +1,4 @@
-# Frontend Mentor - E-commerce product page
+# E-commerce product page
 
 ![Live web preview for the E-commerce product page coding challenge](./assets/images/desktop-screenshot.gif)
 
@@ -17,5 +17,7 @@ Your should be able to:
 - The lightbox gallery is disabled on mobile
 - Add items to the cart
 - View the cart and remove items from it
+
+[VISIT LIVE PREVIEW](https://swckd.github.io/E-commerce-product-page/)
 
 ![Live web preview for the E-commerce product page coding challenge](./assets/images/mobile-screenshot.gif)
