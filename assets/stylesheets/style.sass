@@ -1,193 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap')
-
 @import "../../node_modules/bootstrap/scss/bootstrap"
 
-@each $breakpoint in map-keys($grid-breakpoints)
-  @include media-breakpoint-up($breakpoint)
-    $infix: breakpoint-infix($breakpoint, $grid-breakpoints)
-
-    .rounded#{$infix}
-      border-radius: $border-radius !important
-
-    .rounded-top#{$infix}
-      border-top-left-radius: $border-radius !important
-      border-top-right-radius: $border-radius !important
-
-    .rounded-right#{$infix}
-      border-top-right-radius: $border-radius !important
-      border-bottom-right-radius: $border-radius !important
-
-    .rounded-bottom#{$infix}
-      border-bottom-right-radius: $border-radius !important
-      border-bottom-left-radius: $border-radius !important
-
-    .rounded-left#{$infix}
-      border-top-left-radius: $border-radius !important
-      border-bottom-left-radius: $border-radius !important
-
-// Variables
 $orange: #FF7E1B
-$pale-orange: hsl(25, 100%, 94%)
-$very-dark-blue: hsl(220, 13%, 13%)
-$dark-grayish-blue: hsl(219, 9%, 45%)
-$grayish-blue: hsl(220, 14%, 75%)
-$light-grayish-blue: hsl(223, 64%, 98%)
-$white: hsl(0, 0%, 100%)
+$medium-orange: #FFAB6A
+$light-orange: #FFEEE2
+$white: #ffffff
 $black: #1D2026
 $gray: #69707D
+$light-gray: #B6BCC8
 $font-family: 'Kumbh Sans', sans-serif
+$fw-regular: 400
+$fw-bold: 700
 $font-size: 16px
 $my-border-radius: 10px
+$thumbnail-size: 50px
+$icon-size: 16px
 
-// Mixins
 @mixin bg-image($url)
     background-image: url($url)
     background-repeat: no-repeat
 
-// Root
-:root
-    --bs-border-radius: #{$my-border-radius}
-
-// Body
-body
-    font: 100% $font-family
-    font-size: $font-size
-    background-color: $white
-
-// Navbar
-.navbar__profile-pic
-    width: 24px
-    height: 24px
-
-.offcanvas-header
-    .btn-close
-        opacity: 1
-        // align-self: self-end
-        // z-index: 2
-// Button
-// .offcanvas-header
-//     .btn-close
-//         @include bg-image('../../assets/images/icon-close.svg')
-//         opacity: 1
-//         align-self: self-end
-//         // z-index: 1
-//     .btn-close:hover
-//         @include bg-image('../../assets/images/icon-close-hover.svg')
-//         opacity: 1
-
-// Nav link
-.nav-link
-    font-weight: bold
-
-// // Modal
-// .modal, .modal-content 
-//   background-color: transparent !important
-//   border: 0
-
-// .modal-footer
-//   border-top: 0
-
-// // both Carousels
-.carousel-control-prev
-    left: 10px
-
-.carousel-control-prev, .carousel-control-next
-    opacity: 1
-
-.carousel-control-prev-icon, .carousel-control-next-icon
-    background-color: $white
-    border-radius: 50%
-    background-size: 8px 16px
-
-.carousel-control-prev-icon
-    @include bg-image('../../assets/images/icon-previous.svg')
-
-.carousel-control-next-icon:hover
-    @include bg-image('../../assets/images/icon-next-hover.svg')
-
-.carousel-control-prev-icon:hover
-    @include bg-image('../../assets/images/icon-previous-hover.svg')
-
-.carousel-control-next-icon
-    @include bg-image('../../assets/images/icon-next.svg')
-
-// // myCarousel
-// #myCarousel
-//   .carousel-indicators
-//     position: unset
-
-//   .carousel-indicators [data-bs-target]
-//     opacity: 1
-//     background-color: transparent !important
-//     width: 88px
-//     height: 88px
-
-//   .carousel-indicators .active
-//     opacity: 0.5 !important
-
-//   .active-border
-//     border: 20px solid $orange
-
-  .carousel-control-next, .carousel-control-prev
-    opacity: 1
-    // top: -100px
-
-  .carousel-control-next:hover, .carousel-control-prev:hover
-    opacity: 1
-
-//   .carousel-control-prev
-//     left: -38px
-
-//   .carousel-control-next
-//     right: -38px
-
-//   .img-thumbnail
-//     position: relative
-//     overflow: hidden
-
-//   .img-thumbnail img
-//     width: 100%
-//     height: auto
-
-//   .img-thumbnail.active .image-overlay
-//     position: absolute
-//     top: 0
-//     left: 0
-//     width: 100%
-//     height: 100%
-//     background-color: rgba(255, 255, 255, 0.75)
-//     z-index: 2
-//     border-radius: $my-border-radius
-//     border: 2px solid $orange
-
-// .carousel-inner
-  // max-height: 50vh
-  // img
-  //   object-fit: contain
-
-// .carousel-indicators
-//   position: unset
-
-.carousel-indicators
-    position: relative
-
-.carousel-indicators [data-bs-target]
-    opacity: 1
-    background-color: transparent !important
-    width: 88px
-    height: 88px
-
-.thumbnail-indicator
-    position: relative
-    overflow: hidden
-
-
-.thumbnail-indicator img
-    width: 100%
-    height: auto
-    border-radius: $my-border-radius
-
-.thumbnail-indicator.active .thumbnail-overlay
+@mixin indicator-overlay
     position: absolute
     top: 0
     left: 0
@@ -195,18 +28,161 @@ body
     height: 100%
     background-color: rgba(255, 255, 255, 0.75)
     z-index: 2
-    border-radius: $my-border-radius
-    border: 2px solid $orange
 
-.modal-backdrop.show 
+@mixin font-styles($weight, $size)
+    font-weight: $weight
+    font-size: $size
+
+@mixin button-styles($bg-color, $text-color)
+    background-color: $bg-color
+    color: $text-color
+    font-size: $font-size
+    font-weight: $fw-bold
+
+:root
+    --bs-border-radius: #{$my-border-radius}
+
+body
+    font: 100% $font-family
+    font-size: $font-size
+    color: $black
+    background-color: $white
+
+nav
+    padding-top: 41px
+
+    > div
+        @media (min-width: 768px)
+            border-bottom: 1px solid #979797
+            padding-top: 41px
+
+.navbar__profile-pic
+    width: $thumbnail-size
+    height: $thumbnail-size
+
+    @media (max-width: 768px)
+        width: $icon-size
+        height: $icon-size
+
+.offcanvas-header
+    .btn-close
+        opacity: 1
+
+.nav-link
+    color: $gray
+    @include font-styles($fw-regular, $font-size)
+
+    @media (min-width: 768px)
+        font-weight: $fw-bold
+        padding-bottom: 41px
+        border-bottom: 4px solid $white
+
+        &:hover, &.active
+            border-bottom: 4px solid $orange
+            color: $black !important
+
+.popover
+    font-family: $font-family
+    --bs-popover-arrow-width: 0px
+
+    @media (max-width: 767px)
+        max-width: 100% !important
+        width: 100% !important
+
+.popover-header
+    background: $white
+    border-bottom: 1px solid #E4E9F2 !important
+
+.custom-popover
+    width: 360px
+    border: 0
+    border-radius: $my-border-radius
+    background: $white
+    box-shadow: 0px 20px 50px -20px $black
+
+.popover-body
+    display: flex
+    align-items: center
+
+#emptyCart
+    min-height: 220px
+    padding-top: 40%
+
+    @media (max-width: 767px)
+        padding-top: 20%
+
+#cartTotal
+    font-weight: $fw-bold
+
+#loadedCart
+    .cart__thumbnail, .cart__delete
+        width: $thumbnail-size
+        height: $thumbnail-size
+
+    .cart__delete
+        width: $icon-size
+        height: $icon-size - 2px
+
+    .checkout
+        @include button-styles($orange, $white)
+
+.carousel-control-prev
+    left: 10px
+
+.carousel-control-prev, .carousel-control-next
+    opacity: 1
+
+    .carousel-control-prev-icon, .carousel-control-next-icon
+        background-color: $white
+        border-radius: 50%
+        background-size: 8px 16px
+
+        &:hover
+            background-image: url('../../assets/images/icon-next-hover.svg')
+
+    .carousel-control-prev-icon
+        background-image: url('../../assets/images/icon-previous.svg')
+
+    .carousel-control-next-icon
+        background-image: url('../../assets/images/icon-next.svg')
+
+    &:hover
+        opacity: 1
+
+.carousel-indicators
+    position: relative
+
+    [data-bs-target]
+        opacity: 1
+        background-color: transparent !important
+        width: 88px
+        height: 88px
+
+.thumbnail-indicator
+    position: relative
+    overflow: hidden
+
+    &:hover .thumbnail-overlay
+        @include indicator-overlay
+
+    img
+        width: 100%
+        height: auto
+        border-radius: $my-border-radius
+
+    &.active .thumbnail-overlay
+        @include indicator-overlay
+        border-radius: $my-border-radius
+        border: 2px solid $orange
+
+.modal-backdrop.show
     opacity: 0.8
 
 .modal-content
     background-color: transparent
     border: 0
 
-#myCarouselInModal .carousel-control-prev,
-#myCarouselInModal .carousel-control-next
+#myCarouselInModal .carousel-control-prev, #myCarouselInModal .carousel-control-next
     top: -100px
 
 #myModal .btn-close
@@ -215,6 +191,76 @@ body
     align-self: self-end
     z-index: 2
 
-#myModal .btn-close:hover
-    @include bg-image('../../assets/images/icon-close-hover.svg')
-    opacity: 1
+    &:hover
+        @include bg-image('../../assets/images/icon-close-hover.svg')
+        opacity: 1
+
+.product__company-name
+    color: $orange
+    letter-spacing: 2px
+    text-transform: uppercase
+    @include font-styles($fw-bold, 13px)
+
+.product__name
+    @include font-styles($fw-bold, 44px)
+    line-height: 47px
+
+.product__description
+    color: $gray
+    @include font-styles($fw-regular, $font-size)
+    line-height: 26px
+
+.product__price-discounted
+    color: $black
+    @include font-styles($fw-bold, 28px)
+
+.product__price
+    color: $light-gray
+    @include font-styles($fw-bold, $font-size)
+    line-height: 1px
+    text-decoration: line-through
+
+.product__discount
+    font-weight: $fw-bold
+    color: $orange
+    background-color: $light-orange
+
+.product__counter
+    background-color: #F6F8FD
+    font-weight: $fw-bold
+    border: 0
+
+// Delete ARROWS from POPVER START
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button
+    -webkit-appearance: none
+    margin: 0
+
+input[type=number]
+    -moz-appearance: textfield
+// Delete ARROWS from POPVER END
+.input-group-text.product__counter
+    color: $orange
+
+.icon-minus, .icon-plus
+    background-position: center
+
+.icon-minus
+    @include bg-image('../../assets/images/icon-minus.svg')
+
+.icon-plus
+    @include bg-image('../../assets/images/icon-plus.svg')
+    
+.product__addToCart
+    @include button-styles($orange, $white)
+
+    &:hover
+        background-color: $medium-orange
+        color: $white
+
+    &:active, &:focus-visible, &:focus
+        background-color: $orange !important
+        color: $white !important
+
+.badge
+    background-color: $orange
+    font-size: 10px

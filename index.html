@@ -1,65 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- displays site properly based on user's device -->
 
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="./images/favicon-32x32.png"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+  <title>Frontend Mentor | E-commerce product page</title>
+  <link rel="stylesheet" href="assets/stylesheets/style.css" />
+</head>
 
-    <title>Frontend Mentor | E-commerce product page</title>
-
-
-    <link rel="stylesheet" href="assets/stylesheets/style.css" />
-  </head>
-
-  <body>
-     <!-- 
+<body>
+  <!-- 
 =============================
 NAVBAR
 =============================
 -->
-
-    <nav class="navbar navbar-expand-lg">
-      <div class="container-fluid">
-        <div class="d-flex">
-          <button
-            class="navbar-toggler border-0"
-            type="button"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvasNavbar"
-            aria-controls="offcanvasNavbar"
-            aria-label="Toggle navigation"
-          >
-            <img src="assets/images/icon-menu.svg" alt="Menu" />
-          </button>
-          <a class="navbar-brand mb-1" href="#">
-            <img src="assets/images/logo.svg" />
-          </a>
-        </div>
-
-        <div
-          class="offcanvas offcanvas-start"
-          tabindex="-1"
-          id="offcanvasNavbar"
-          aria-labelledby="offcanvasNavbarLabel"
-        >
-        <div class="offcanvas-header pb-0">
-        
-          <a type="button" class="btn-close m-0 p-0" data-bs-dismiss="offcanvas" aria-label="Close"></a>
-        </div>
+  <nav class="navbar navbar-expand-md align-items-baseline">
+    <div class="container-md d-flex align-items-baseline">
+      <div class="d-flex">
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+          <img src="assets/images/icon-menu.svg" alt="Menu" />
+        </button>
+        <a class="navbar-brand m-0 me-5 p-0" href="#">
+          <img src="assets/images/logo.svg" />
+        </a>
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
+          aria-labelledby="offcanvasNavbarLabel">
+          <div class="offcanvas-header pb-0">
+            <a type="button" class="btn-close m-0 p-0" data-bs-dismiss="offcanvas" aria-label="Close"></a>
+          </div>
           <div class="offcanvas-body pt-0">
-
             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#"
-                  >Collections</a
-                >
+                <a class="nav-link active" aria-current="page" href="#">Collections</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Men</a>
@@ -76,352 +50,263 @@ NAVBAR
             </ul>
           </div>
         </div>
-
-        <div class="d-flex">
-          <a href="#"><img src="assets/images/icon-cart.svg" class="me-1" /></a>
-          <a href="#" class="navbar__profile-pic"
-            ><img src="assets/images/image-avatar.png" class="img-fluid"
-          /></a>
-        </div>
       </div>
-    </nav>
-    <!-- 
+      <div class="d-flex align-items-baseline">
+        <a class=" position-relative" id="cartButton" type="button" data-bs-custom-class="custom-popover"
+          data-bs-toggle="popover" data-bs-title="Cart" data-bs-content="" data-bs-placement="bottom">
+          <img src="assets/images/icon-cart.svg" />
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill invisible"
+            id="badgeProductCounter">
+            1
+            <span class="visually-hidden">products in cart</span>
+          </span>
+        </a>
+        <!-- 
+        =============================
+        POPOVER START
+        =============================
+        -->
+        <div hidden class="container">
+          <div data-name="popover-content">
+            <p class="w-100 text-center fw-bold" id="emptyCart">Your cart is empty.</p>
+            <div id="loadedCart" class="container p-0 d-none">
+              <div class="row p-0 align-items-center">
+                <div class="col-3 p-0">
+                  <img src="assets/images/image-product-1-thumbnail.jpg" class="cart__thumbnail img-fluid rounded">
+                </div>
+                <div class="col-8 p-0">
+                  <div class="d-flex flex-column">
+                    <p class="m-0">Fall Limited Edition Sneakers</p>
+                    <div>
+                      <span>$125.00</span>
+                      <span>x</span>
+                      <span id="productQuantity">3</span>
+                      <span id="cartTotal">$375.00</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-1 p-0">
+                  <a href="#" id="deleteCartButton">
+                    <img src="assets/images/icon-delete.svg">
+                  </a>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <a type="button" class="btn btn-lg d-block mt-1 checkout">Checkout</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 
+        =============================
+        POPOVER END
+        =============================
+        -->
+        <a href="#" class="navbar__profile-pic ms-3"><img src="assets/images/image-avatar.png" class="img-fluid" /></a>
+      </div>
+    </div>
+  </nav>
+  <!-- 
 =============================
 BODY
 =============================
 -->
-    <div class="container p-0">
-      <div class="row">
-        <div class="col-md-6 p-0">
-          <!-- 
+  <div class="container-lg mt-1 p-0">
+    <div class="row">
+      <div class="col-md-6 p-0">
+        <!-- 
 =============================
 CAROUSEL START
 =============================
 -->
-          <div id="myCarousel" class="carousel">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img
-                  data-bs-toggle="modal"
-                  data-bs-target="#myModal"
-                  src="assets/images/image-product-1.jpg"
-                  class="d-block w-100 rounded-sm"
-                />
-              </div>
-              <div class="carousel-item">
-                <img
-                  data-bs-toggle="modal"
-                  data-bs-target="#myModal"
-                  src="assets/images/image-product-2.jpg"
-                  class="d-block w-100 rounded-sm"
-                />
-              </div>
-              <div class="carousel-item">
-                <img
-                  data-bs-toggle="modal"
-                  data-bs-target="#myModal"
-                  src="assets/images/image-product-3.jpg"
-                  class="d-block w-100 rounded-sm"
-                />
-              </div>
-              <div class="carousel-item">
-                <img
-                  data-bs-toggle="modal"
-                  data-bs-target="#myModal"
-                  src="assets/images/image-product-4.jpg"
-                  class="d-block w-100 rounded-sm"
-                />
-              </div>
+        <div id="myCarousel" class="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img data-bs-toggle="modal" data-bs-target="#myModal" src="assets/images/image-product-1.jpg"
+                class="d-block w-100 rounded-sm" />
             </div>
-            <!-- Indicators start -->
-            <div
-              class="carousel-indicators d-none d-sm-block m-auto text-center"
-            >
-              <button
-                type="button"
-                data-bs-target="#myCarousel"
-                class="active thumbnail-indicator"
-                data-bs-slide-to="0"
-              >
-                <img
-                  src="assets/images/image-product-1-thumbnail.jpg"
-                  class="active d-block w-100"
-                />
-                <div class="thumbnail-overlay"></div>
-              </button>
-              <button
-                type="button"
-                data-bs-target="#myCarousel"
-                class="thumbnail-indicator"
-                data-bs-slide-to="1"
-              >
-                <img
-                  src="assets/images/image-product-2-thumbnail.jpg"
-                  class="d-block w-100"
-                />
-                <div class="thumbnail-overlay"></div>
-              </button>
-              <button
-                type="button"
-                data-bs-target="#myCarousel"
-                class="thumbnail-indicator"
-                data-bs-slide-to="2"
-              >
-                <img
-                  src="assets/images/image-product-3-thumbnail.jpg"
-                  class="d-block w-100"
-                />
-                <div class="thumbnail-overlay"></div>
-              </button>
-              <button
-                type="button"
-                data-bs-target="#myCarousel"
-                class="thumbnail-indicator"
-                data-bs-slide-to="3"
-              >
-                <img
-                  src="assets/images/image-product-4-thumbnail.jpg"
-                  class="d-block w-100"
-                />
-                <div class="thumbnail-overlay"></div>
-              </button>
+            <div class="carousel-item">
+              <img data-bs-toggle="modal" data-bs-target="#myModal" src="assets/images/image-product-2.jpg"
+                class="d-block w-100 rounded-sm" />
             </div>
-            <!-- Indicators End -->
-            <button
-              class="carousel-control-prev d-block d-sm-none"
-              type="button"
-              data-bs-target="#myCarousel"
-              data-bs-slide="prev"
-            >
-              <span
-                class="carousel-control-prev-icon"
-                aria-hidden="true"
-              ></span>
-              <span class="visually-hidden">Previous</span>
+            <div class="carousel-item">
+              <img data-bs-toggle="modal" data-bs-target="#myModal" src="assets/images/image-product-3.jpg"
+                class="d-block w-100 rounded-sm" />
+            </div>
+            <div class="carousel-item">
+              <img data-bs-toggle="modal" data-bs-target="#myModal" src="assets/images/image-product-4.jpg"
+                class="d-block w-100 rounded-sm" />
+            </div>
+          </div>
+          <!-- Indicators start -->
+          <div class="carousel-indicators d-none d-sm-block m-auto text-center">
+            <button type="button" data-bs-target="#myCarousel" class="active thumbnail-indicator" data-bs-slide-to="0">
+              <img src="assets/images/image-product-1-thumbnail.jpg" class="active d-block w-100" />
+              <div class="thumbnail-overlay"></div>
             </button>
-            <button
-              class="carousel-control-next d-block d-sm-none"
-              type="button"
-              data-bs-target="#myCarousel"
-              data-bs-slide="next"
-            >
-              <span
-                class="carousel-control-next-icon"
-                aria-hidden="true"
-              ></span>
-              <span class="visually-hidden">Next</span>
+            <button type="button" data-bs-target="#myCarousel" class="thumbnail-indicator" data-bs-slide-to="1">
+              <img src="assets/images/image-product-2-thumbnail.jpg" class="d-block w-100" />
+              <div class="thumbnail-overlay"></div>
+            </button>
+            <button type="button" data-bs-target="#myCarousel" class="thumbnail-indicator" data-bs-slide-to="2">
+              <img src="assets/images/image-product-3-thumbnail.jpg" class="d-block w-100" />
+              <div class="thumbnail-overlay"></div>
+            </button>
+            <button type="button" data-bs-target="#myCarousel" class="thumbnail-indicator" data-bs-slide-to="3">
+              <img src="assets/images/image-product-4-thumbnail.jpg" class="d-block w-100" />
+              <div class="thumbnail-overlay"></div>
             </button>
           </div>
+          <!-- Indicators End -->
+          <button class="carousel-control-prev d-block d-sm-none" type="button" data-bs-target="#myCarousel"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next d-block d-sm-none" type="button" data-bs-target="#myCarousel"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
 
-          <!-- 
+        <!-- 
 =============================
 CAROUSEL END
 =============================
 -->
-        </div>
-        <!-- 
+      </div>
+      <!-- 
 =============================
 MODAL START
 =============================
 -->
 
-        <div
-          class="modal fade"
-          id="myModal"
-          tabindex="-1"
-          aria-labelledby="myModal"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-              <button type="button" class="btn-close align-self-end" data-bs-dismiss="modal" aria-label="Close"></button>
-              <!-- 
+      <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <button type="button" class="btn-close align-self-end" data-bs-dismiss="modal" aria-label="Close"></button>
+            <!-- 
 =============================
 MODAL CAROUSEL START
 =============================
 -->
-              <div id="myCarouselInModal" class="carousel">
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img
-                      src="assets/images/image-product-1.jpg"
-                      class="d-block w-100 rounded-sm"
-                    />
-                  </div>
-                  <div class="carousel-item">
-                    <img
-                      src="assets/images/image-product-2.jpg"
-                      class="d-block w-100 rounded-sm"
-                    />
-                  </div>
-                  <div class="carousel-item">
-                    <img
-                      src="assets/images/image-product-3.jpg"
-                      class="d-block w-100 rounded-sm"
-                    />
-                  </div>
-                  <div class="carousel-item">
-                    <img
-                      src="assets/images/image-product-4.jpg"
-                      class="d-block w-100 rounded-sm"
-                    />
-                  </div>
+            <div id="myCarouselInModal" class="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img src="assets/images/image-product-1.jpg" class="d-block w-100 rounded-sm" />
                 </div>
-                <!-- Indicators start -->
-                <div class="carousel-indicators">
-                  <button
-                    type="button"
-                    data-bs-target="#myCarouselInModal"
-                    class="active thumbnail-indicator"
-                    data-bs-slide-to="0"
-                  >
-                    <img
-                      src="assets/images/image-product-1-thumbnail.jpg"
-                      class="active d-block w-100"
-                    />
-                    <div class="thumbnail-overlay"></div>
-                  </button>
-                  <button
-                    type="button"
-                    data-bs-target="#myCarouselInModal"
-                    class="thumbnail-indicator"
-                    data-bs-slide-to="1"
-                  >
-                    <img
-                      src="assets/images/image-product-2-thumbnail.jpg"
-                      class="d-block w-100"
-                    />
-                    <div class="thumbnail-overlay"></div>
-                  </button>
-                  <button
-                    type="button"
-                    data-bs-target="#myCarouselInModal"
-                    class="thumbnail-indicator"
-                    data-bs-slide-to="2"
-                  >
-                    <img
-                      src="assets/images/image-product-3-thumbnail.jpg"
-                      class="d-block w-100"
-                    />
-                    <div class="thumbnail-overlay"></div>
-                  </button>
-                  <button
-                    type="button"
-                    data-bs-target="#myCarouselInModal"
-                    class="thumbnail-indicator"
-                    data-bs-slide-to="3"
-                  >
-                    <img
-                      src="assets/images/image-product-4-thumbnail.jpg"
-                      class="d-block w-100"
-                    />
-                    <div class="thumbnail-overlay"></div>
-                  </button>
+                <div class="carousel-item">
+                  <img src="assets/images/image-product-2.jpg" class="d-block w-100 rounded-sm" />
                 </div>
-                <!-- Indicators End -->
-                <button
-                  class="carousel-control-prev" d-block d-sm-none""
-                  type="button"
-                  data-bs-target="#myCarouselInModal"
-                  data-bs-slide="prev"
-                >
-                  <span
-                    class="carousel-control-prev-icon"
-                    aria-hidden="true"
-                  ></span>
-                  <span class="visually-hidden">Previous</span>
+                <div class="carousel-item">
+                  <img src="assets/images/image-product-3.jpg" class="d-block w-100 rounded-sm" />
+                </div>
+                <div class="carousel-item">
+                  <img src="assets/images/image-product-4.jpg" class="d-block w-100 rounded-sm" />
+                </div>
+              </div>
+              <!-- Indicators start -->
+              <div class="carousel-indicators">
+                <button type="button" data-bs-target="#myCarouselInModal" class="active thumbnail-indicator"
+                  data-bs-slide-to="0">
+                  <img src="assets/images/image-product-1-thumbnail.jpg" class="active d-block w-100" />
+                  <div class="thumbnail-overlay"></div>
                 </button>
-                <button
-                  class="carousel-control-next"
-                  type="button"
-                  data-bs-target="#myCarouselInModal"
-                  data-bs-slide="next"
-                >
-                  <span
-                    class="carousel-control-next-icon"
-                    aria-hidden="true"
-                  ></span>
-                  <span class="visually-hidden">Next</span>
+                <button type="button" data-bs-target="#myCarouselInModal" class="thumbnail-indicator"
+                  data-bs-slide-to="1">
+                  <img src="assets/images/image-product-2-thumbnail.jpg" class="d-block w-100" />
+                  <div class="thumbnail-overlay"></div>
+                </button>
+                <button type="button" data-bs-target="#myCarouselInModal" class="thumbnail-indicator"
+                  data-bs-slide-to="2">
+                  <img src="assets/images/image-product-3-thumbnail.jpg" class="d-block w-100" />
+                  <div class="thumbnail-overlay"></div>
+                </button>
+                <button type="button" data-bs-target="#myCarouselInModal" class="thumbnail-indicator"
+                  data-bs-slide-to="3">
+                  <img src="assets/images/image-product-4-thumbnail.jpg" class="d-block w-100" />
+                  <div class="thumbnail-overlay"></div>
                 </button>
               </div>
+              <!-- Indicators End -->
+              <button class="carousel-control-prev" d-block d-sm-none"" type="button"
+                data-bs-target="#myCarouselInModal" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#myCarouselInModal"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
 
-              <!-- 
+            <!-- 
 =============================
 MODAL CAROUSEL END
 =============================
 -->
-            </div>
           </div>
         </div>
-        <!-- 
+      </div>
+      <!-- 
 =============================
 MODAL End
 =============================
 -->
-        <div class="col-sm-12 col-md-6 p-3">
-          <span>Sneakers Company</span>
-          <h1>Fall Limited Edition Sneakers</h1>
-          <p>
-            These low-profile sneakers are your perfect casual wear companion.
-            Featuring a durable rubber outer sole, they’ll withstand everything
-            the weather can offer.
-          </p>
-          <div class="container">
-            <div class="row">
-              <div class="col">
-                <p>$125.00</p>
-                <p>$250.00</p>
-              </div>
-              <div class="col"><span>50%</span></div>
+      <div class="col-sm-12 col-md-6 p-3 p-sm-5 p-md-2 p-lg-5">
+        <span class="product__company-name">Sneakers Company</span>
+        <h1 class="product__name">Fall Limited Edition Sneakers</h1>
+        <p class="product__description">
+          These low-profile sneakers are your perfect casual wear companion.
+          Featuring a durable rubber outer sole, they'll withstand everything
+          the weather can offer.
+        </p>
+        <div class="container">
+          <div class="row">
+            <div class="col-4 col-md-4 col-lg-5">
+              <p class="product__price-discounted">$125.00</p>
+              <p class="product__price">$250.00</p>
             </div>
-            <div class="row">
-              <div class="col">- 0 +</div>
-              <div class="col">Add to Cart</div>
+            <div class="col-8 col-md-8 col-lg-7 mt-2"><span
+                class="product__discount pt-1 pb-1 pe-2 ps-2 rounded">50%</span></div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-3 col-md-5">
+              <div class="input-group h-100">
+                <span class="input-group-text product__counter icon-minus p-3" id="minusButton"></span>
+                <input type="number" class="form-control text-center product__counter" placeholder="0"
+                  id="productCounterInput">
+                <span class="input-group-text product__counter icon-plus p-3" id="plusButton"></span>
+              </div>
+            </div>
+            <div class="col-12 mt-2 mt-lg-0 col-9 col-md-7">
+              <a href="#" id="addToCartButton"
+                class="btn product__addToCart d-flex align-items-center justify-content-center pt-2 pb-2 pe-5 ps-5 pt-md-2 pb-md-2 pe-md-3 ps-ms-3 pt-lg-2 pb-lg-2 pe-lg-5 ps-lg-5 ">
+                <svg width="17.46" height="16" viewBox="0 0 22 20" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z"
+                    fill="white" fill-rule="nonzero" />
+                </svg>
+                <span class="ms-1">
+                  Add to cart
+                </span>
+              </a>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
+  <script src="assets/scripts/cart-popover-script.js"></script>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+  <script src="assets/scripts/avoid-modal-xs-screens-script.js"></script>
+  <script src="assets/scripts/functionality.js"></script>
 
-    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="assets/scripts/script.js"></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        function checkWidth() {
-          var windowSize = window.innerWidth;
 
-          if (windowSize > 767) {
-            document
-              .querySelectorAll('[data-bs-toggle="modal"]')
-              .forEach(function (el) {
-                el.setAttribute("data-bs-toggle", "modal");
-              });
-            document
-              .querySelectorAll('[data-bs-target="#myModal"]')
-              .forEach(function (el) {
-                el.setAttribute("data-bs-target", "#myModal");
-              });
-          } else {
-            document
-              .querySelectorAll('[data-bs-toggle="modal"]')
-              .forEach(function (el) {
-                el.removeAttribute("data-bs-toggle");
-              });
-            document
-              .querySelectorAll('[data-bs-target="#myModal"]')
-              .forEach(function (el) {
-                el.removeAttribute("data-bs-target");
-              });
-          }
-        }
+</body>
 
-        // Execute on load
-        checkWidth();
-
-        // Bind event listener
-        window.addEventListener("resize", checkWidth);
-      });
-    </script>
-  </body>
 </html>
