@@ -18,13 +18,14 @@ Your should be able to:
 - Add items to the cart
 - View the cart and remove items from it
 
-[VISIT LIVE PREVIEW](https://swckd.github.io/E-commerce-product-page/)
+## [VISIT LIVE PREVIEW](https://swckd.github.io/E-commerce-product-page/)
 
-Responsive navbar:
+## See some screenshots
+*Responsive navbar:*
 
 ![Mobile 1](./assets/images/mobile-screenshot-1.gif "Mobile 1")
 
-Cart functionality:
+*Cart functionality:*
 
 ![Mobile 2](./assets/images/mobile-screenshot-2.gif "Mobile 2")
 
