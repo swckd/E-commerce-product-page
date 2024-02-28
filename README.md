@@ -20,4 +20,4 @@ Your should be able to:
 
 [VISIT LIVE PREVIEW](https://swckd.github.io/E-commerce-product-page/)
 
-![Live web preview for the E-commerce product page coding challenge](./assets/images/mobile-screenshot.gif)
+![Live web preview for the E-commerce product page coding challenge](./assets/images/mobile-screenshot.gif)![Live web preview for the E-commerce product page coding challenge](./assets/images/mobile-screenshot-2.gif)
