@@ -21,8 +21,10 @@ Your should be able to:
 [VISIT LIVE PREVIEW](https://swckd.github.io/E-commerce-product-page/)
 
 Responsive navbar:
+
 ![Mobile 1](./assets/images/mobile-screenshot-1.gif "Mobile 1")
 
 Cart functionality:
+
 ![Mobile 2](./assets/images/mobile-screenshot-2.gif "Mobile 2")
 
