@@ -21,5 +21,5 @@ Your should be able to:
 [VISIT LIVE PREVIEW](https://swckd.github.io/E-commerce-product-page/)
 
 
-![Mobile 1](./assets/images/mobile-screenshot.gif "Mobile 1")![Mobile 2](./assets/images/mobile-screenshot-2.gif "Mobile 2")
+![Mobile 1](./assets/images/mobile-screenshot-1.gif "Mobile 1")![Mobile 2](./assets/images/mobile-screenshot-2.gif "Mobile 2")
 
